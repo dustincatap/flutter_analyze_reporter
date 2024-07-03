@@ -16,8 +16,6 @@ class FlutterAnalyzeParser {
           '--suppress-analytics',
           '--no-preamble',
           '--no-congratulate',
-          '--no-fatal-infos',
-          '--no-fatal-warnings',
         ],
         runInShell: true,
       );
