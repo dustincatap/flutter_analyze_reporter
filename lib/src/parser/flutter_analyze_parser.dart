@@ -9,14 +9,18 @@ import 'package:flutter_analyze_reporter/src/model/location.dart';
 class FlutterAnalyzeParser {
   List<Issue> flutterAnalyze({String? stdout}) {
     if (stdout == null) {
-      final ProcessResult result = Process.runSync('flutter', [
-        'analyze',
-        '--suppress-analytics',
-        '--no-preamble',
-        '--no-congratulate',
-        '--no-fatal-infos',
-        '--no-fatal-warnings',
-      ]);
+      final ProcessResult result = Process.runSync(
+        'flutter',
+        [
+          'analyze',
+          '--suppress-analytics',
+          '--no-preamble',
+          '--no-congratulate',
+          '--no-fatal-infos',
+          '--no-fatal-warnings',
+        ],
+        runInShell: true,
+      );
       stdout ??= result.stdout.toString();
     }
     return _parseFlutterAnalyze(stdout);
